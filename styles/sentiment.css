@@ -1,0 +1,195 @@
+#all-sentiment-infos {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    --sentiment-btn-background: rgba(255, 255, 255, 0.1);
+    --sentiment-btn-hover: rgba(255, 255, 255, 0.2);
+    --sentiment-btn-text: #fff;
+    --sentiment-error-background: #9e2a2b;
+    --sentiment-error-border: #cf272a;
+    --tootltip-background: #fff;
+    --toolltip-text: #000;
+}
+
+html:not([dark=""]) #all-sentiment-infos {
+    --sentiment-btn-background: rgba(0, 0, 0, 0.05);
+    --sentiment-btn-hover: rgba(0, 0, 0, 0.1);
+    --sentiment-btn-text: #000;
+    --sentiment-error-background: #c33335;
+    --sentiment-error-border: #9e2a2b;
+    --tootltip-background: #000;
+    --toolltip-text: #fff;
+}
+
+#all-sentiment-infos * {
+    white-space: nowrap;
+}
+
+.fetch-sentiment-btn {
+    height: 36px;
+    padding: 0 16px;
+    background: var(--sentiment-btn-background);
+    color: var(--sentiment-btn-text);
+    border-radius: 100px;
+    font-size: 14px;
+    line-height: 36px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex
+}
+
+
+.fetch-sentiment-btn-icon {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.fetch-sentiment-btn-icon svg {
+    height: 20px;
+    width: 20px;
+    stroke: var(--sentiment-btn-text);
+    fill: none;
+}
+
+.fetching-sentiment-btn-icon svg {
+    animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+    0% {
+        rotate: 0deg;
+    }
+
+    100% {
+        rotate: 360deg;
+    }
+}
+
+.fetch-sentiment-btn:hover {
+    background: var(--sentiment-btn-hover);
+}
+
+.current-sentiment-cont {
+    display: flex;
+    gap: 10px;
+}
+
+.sentiment-cont {
+    display: flex;
+    flex-direction: column;
+    height: 36px;
+    justify-content: center;
+}
+
+.sentiment-cont-row1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.sentiment-cont-title {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.sentiment-cont-value {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.sentiment-cont-row2 {
+    border-radius: 100px;
+    width: 100%;
+    display: flex;
+    /* overflow: hidden; */
+    align-items: stretch;
+    gap: 4px;
+}
+
+.sentiment-cont-row2 * {
+    border-radius: 100px;
+}
+
+.sentiment-cont-neg div {
+    background: #ef233c;
+}
+
+.sentiment-cont-neu div {
+    background: var(--sentiment-btn-text);
+}
+
+.sentiment-cont-pos div {
+    background: #55a630;
+}
+
+.sentiment-cont-neg, .sentiment-cont-neu, .sentiment-cont-pos {
+    position: relative;
+    padding-top: 5px;
+    padding-bottom: 3px;
+}
+
+:where(.sentiment-cont-neg, .sentiment-cont-neu, .sentiment-cont-pos) div {
+    height: 2px;
+}
+
+:where(.sentiment-cont-neg, .sentiment-cont-neu, .sentiment-cont-pos)::after {
+    content: attr(data-value);
+    position: absolute;
+    top: -3px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-100%);
+    background: var(--tootltip-background);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    border-radius: 100px;
+    padding: 3px 5px;
+    color: var(--toolltip-text);
+    display: none;
+}
+
+:where(.sentiment-cont-neg, .sentiment-cont-neu, .sentiment-cont-pos):hover::after {
+    display: block;
+}
+
+.reload-sentiment-btn {
+    height: 36px;
+    aspect-ratio: 1/1;
+    background: var(--sentiment-btn-background);
+    color: var(--sentiment-btn-text);
+    border-radius: 100px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reload-sentiment-btn svg {
+    height: 20px;
+    width: 20px;
+    stroke: var(--sentiment-btn-text);
+    fill: none;
+}
+
+.reload-sentiment-btn:hover {
+    background: var(--sentiment-btn-hover);
+}
+
+#sentiment-error-box {
+    height: 32px;
+    aspect-ratio: 1/1;
+    color: #fff;
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--sentiment-error-background);
+    border: 2px solid var(--sentiment-error-border);
+    padding-bottom: 2px;
+}
+
+#sentiment-error-box svg {
+    height: 20px;
+    width: 20px;
+    stroke: #fff;
+}

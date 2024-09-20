@@ -1,0 +1,42 @@
+{
+  "manifest_version": 3,
+  "name": "Youtube Sentiment",
+  "version": "1.0",
+  "homepage_url": "https://github.com/LucaswithC/Youtube-Sentiment-Extension",
+
+  "description": "Youtube Sentiment",
+
+  "icons": {
+    "32": "icons/sentiment-32.png",
+    "48": "icons/sentiment-48.png",
+    "96": "icons/sentiment-96.png"
+  },
+
+  "action": {
+    "default_icon": "icons/sentiment-32.png",
+    "default_title": "Youtube Sentiment",
+    "default_popup": "popup/settings.html"
+  },
+
+  "permissions": ["activeTab", "tabs", "storage"],
+
+  "background": {
+    "service_worker": "background/background_bundle.js"
+  },
+
+  "host_permissions": [
+    "https://youtube.googleapis.com/youtube/v3/commentThreads?*"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "css": ["styles/sentiment.css"]
+    },
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "js": ["bundle.js"],
+      "run_at": "document_end"
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="settings.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>Youtube Audience Sentiment</h1>
+    </header>
+    <main>
+      <div id="select-fetch-method">
+        <div id="select-fetch-method-inner">
+          <input
+            type="radio"
+            name="fetch-method"
+            value="scroll"
+            id="fetch-scroll"
+          />
+          <label for="fetch-scroll">Scrolling</label>
+          <input type="radio" name="fetch-method" value="api" id="fetch-api" />
+          <label for="fetch-api">Youtube API</label>
+        </div>
+      </div>
+      <div id="fetch-method-settings">
+        <div id="fetch-scroll-settings">
+          <p>
+            Analyzing comments by scrolling through the web page may take
+            longer, but there's <strong>no limit</strong> to how many comments
+            you can analyze.
+          </p>
+        </div>
+        <div id="fetch-api-settings">
+          <p>
+            Analyzing comments with the API is faster, but there is a free limit
+            of <strong>10,000 requests</strong> per day. These can be used to
+            analyze <strong>up to 500,000 comments</strong> per day.
+          </p>
+          <div class="mt-10">
+            <label class="label-title"><h5>Youtube API Key</h5></label>
+            <input
+              type="text"
+              placeholder="Enter your Key here"
+              id="inputYoutubeApiKey"
+            />
+            <a
+              href="https://developers.google.com/youtube/v3/getting-started#before-you-start"
+              class="mt-3"
+              target="_blank"
+              >Get your free API key here</a
+            >
+          </div>
+          <div class="mt-10">
+            <label class="checkbox-box" for="inputCalculateOnLoad">
+              <div>
+                <h5>Calculate on load</h5>
+                <p>Automatically rate sentiment as the page loads the video.</p>
+              </div>
+              <div class="switch">
+                <input type="checkbox" id="inputCalculateOnLoad" />
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div id="fetch-general-settings">
+        <div class="card mt-10">
+          <label><h5>Maximum number of comments</h5></label>
+          <p>
+            You can set a limit on the number of comments you want to analyze.
+          </p>
+          <input
+            class="mt-5"
+            type="number"
+            placeholder="1000"
+            id="inputMaxComments"
+            min="1"
+          />
+        </div>
+        <div>
+          <label class="mt-10 card checkbox-box" for="inputWeightedSentiment">
+            <div>
+              <h5>Calculate weighted sentiment</h5>
+              <p>
+                Likes increase the amount a comment contributes to the total
+                sentiment.
+              </p>
+            </div>
+            <div class="switch">
+              <input type="checkbox" id="inputWeightedSentiment" />
+            </div>
+          </label>
+        </div>
+      </div>
+    </main>
+    <script src="settings_bundle.js"></script>
+  </body>
+</html>

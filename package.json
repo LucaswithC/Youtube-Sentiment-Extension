@@ -1,0 +1,24 @@
+{
+  "name": "youtubesentimentextension",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "watchify content_scripts/main.js -o bundle.js",
+    "dev-background": "watchify background/background.js -o background/background_bundle.js",
+    "dev-popup": "watchify popup/settings.js -o popup/settings_bundle.js",
+    "run": "web-ext run",
+    "build": "web-ext build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "browserify": "^17.0.0",
+    "sentiment": "^5.0.2",
+    "watchify": "^4.0.0"
+  },
+  "devDependencies": {
+    "webextension-polyfill": "^0.12.0"
+  }
+}

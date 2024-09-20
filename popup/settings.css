@@ -1,0 +1,250 @@
+@font-face {
+    font-family: OutfitVariable;
+    src: url(font/Outfit-VariableFont_wght.ttf);
+}
+
+:root {
+    --background-color: rgb(13, 13, 13);
+    --card-color: rgb(33, 33, 33);
+    --light-grey: rgb(103, 103, 103);
+    --text-color: rgb(245, 245, 245);
+    --accent-color: #9e2a2b;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    background: var(--background-color);
+    font-family: OutfitVariable, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+    min-height: 100vh;
+}
+
+header {
+    padding: 15px 10px;
+    color: white;
+    background: var(--card-color);
+
+}
+
+header h1 {
+    font-size: 1rem;
+    text-align: center;
+}
+
+p {
+    font-size: 0.8rem;
+    font-weight: 300;
+}
+
+strong {
+    font-weight: 700;
+}
+
+h5 {
+    font-size: 0.9rem;
+    margin-bottom: 3px;
+    font-weight: 700;
+}
+
+.mt-1 {
+    margin-top: 1px;
+}
+
+.mt-2 {
+    margin-top: 2px;
+}
+
+.mt-3 {
+    margin-top: 3px;
+}
+
+.mt-4 {
+    margin-top: 4px;
+}
+
+.mt-5 {
+    margin-top: 5px;
+}
+
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+.mb-5 {
+    margin-bottom: 5px;
+}
+
+.card {
+    background: var(--card-color);
+    padding: 10px 15px;
+    border-radius: 2px;
+    color: var(--text-color)
+}
+
+.switch {
+    height: 15px;
+    width: 30px;
+    border-radius: 100px;
+    background: var(--light-grey);
+    transition: 200ms;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.switch input {
+    display: none;
+}
+
+.switch::after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    aspect-ratio: 1/1;
+    background: var(--text-color);
+    border-radius: 100px;
+    left: 0;
+    transition: 200ms;
+}
+
+.switch:has(input:checked) {
+    background: var(--accent-color);
+}
+
+.switch:has(input:checked)::after {
+    left: calc(100% - 15px);
+}
+
+input[type="text"], input[type="number"] {
+    border: 2px solid var(--light-grey);
+    color: var(--text-color);
+    background: var(--card-color);
+    border-radius: 2px;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border-radius: 2px;
+    font-size: 0.8rem;
+}
+
+main {
+    padding: 10px;
+    width: 350px;
+}
+
+label.checkbox-box {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+label.checkbox-box:hover {
+    outline: 1px solid var(--light-grey);
+}
+
+label.checkbox-box input {
+    accent-color: #9e2a2b;
+    height: 30px;
+    width: 30px;
+}
+
+#select-fetch-method {
+    background: var(--card-color);
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    padding: 15px 15px 0 15px;
+}
+
+#select-fetch-method-inner {
+    display: grid;
+    gap: 5px;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    border-radius: 2px;
+    font-weight: bold;
+}
+
+#select-fetch-method-inner::before {
+    content: "";
+    height: 100%;
+    width: calc(50% - 2.5px);
+    background: #fff;
+    border-radius: 2px;
+    position: absolute;
+    left: 25%;
+    transition: left 200ms;
+    z-index: -1;
+}
+
+#select-fetch-method-inner:has(input#fetch-api:checked)::before {
+    left: calc(50% + 2.5px);
+}
+
+#select-fetch-method-inner:has(input#fetch-scroll:checked)::before {
+    left: 0;
+}
+
+#select-fetch-method-inner input {
+    display: none;
+}
+
+#select-fetch-method-inner label {
+    flex: 1 1 1;
+    padding: 10px 15px;
+    text-align: center;
+    cursor: pointer;
+    background: rgb(255, 255, 255, 0.4);
+    border-radius: 2px;
+}
+
+#fetch-method-settings {
+    background: var(--card-color);
+    padding: 15px;
+    padding-top: 10px;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    color: #fff
+}
+
+#fetch-method-settings label.checkbox-box {
+    padding: 5px;
+    margin: 0 -5px;
+}
+
+#fetch-scroll-settings, #fetch-api-settings {
+    display: none;
+}
+
+main:has(input#fetch-scroll:checked) #fetch-scroll-settings {
+    display: block !important;
+}
+
+main:has(input#fetch-api:checked) #fetch-api-settings {
+    display: block !important;
+}
+
+#fetch-api-settings label.label-title {
+    display: block;
+    margin-top: 5px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    margin-bottom: 2px;
+}
+
+#fetch-api-settings a {
+    display: block;
+    font-size: 0.7rem;
+    color: #c9c9c9;
+}
