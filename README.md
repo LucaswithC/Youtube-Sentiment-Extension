@@ -18,7 +18,7 @@ This can serve as a good alternative to likes and dislikes, now that dislikes ar
 - **Calculate weightes sentiment**: Likes left on a comment will be taken into account when calculating the sentiment. So not only the comment authors have an influence, but also the people who just leave a like.
 - **Calculate on load**: If you choose the API, you can have the sentiment calculated automatically when the video loads, without having to think about it.
 
-**Supported comment languages**: English (More comming soon)
+**Supported comment languages**: English (More coming soon)
 
 ![Youtube Squid Games Trailer](images/readme3.png)
 
