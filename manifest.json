@@ -1,10 +1,10 @@
 {
   "manifest_version": 3,
-  "name": "Youtube Sentiment",
-  "version": "1.0",
+  "name": "Youtube Sentiment Analyzer",
+  "version": "1.1",
   "homepage_url": "https://github.com/LucaswithC/Youtube-Sentiment-Extension",
 
-  "description": "Youtube Sentiment",
+  "description": "This extension analyzes the sentiment of Youtube comments to give you a good overview of the feelings of the community.",
 
   "icons": {
     "32": "icons/sentiment-32.png",
@@ -42,7 +42,7 @@
 
   "browser_specific_settings": {
     "gecko": {
-      "id": "addon@kiers.at",
+      "id": "addon@youtubesentimentanalyzer.com",
       "strict_min_version": "110.0"
     }
   }

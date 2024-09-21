@@ -33,15 +33,14 @@ async function calculateSentiment(c, weighted) {
 
 async function evaluateSentiments(comments) {
   if (comments.length === 0) {
-    reutrn[
-      (0,
+    return [
+      0,
       {
         Negative: 0,
         Neutral: 0,
         Positive: 0,
-      })
+      },
     ];
-    return;
   }
 
   let weightedSentiment = await browser.runtime.sendMessage({

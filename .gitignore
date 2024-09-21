@@ -2,3 +2,6 @@ node_modules/
 bruno/
 web-ext-artifacts/
 icons/create_icon/
+.env
+chrome/
+.amo-upload-uuid
