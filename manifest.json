@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Youtube Sentiment Analyzer",
-  "version": "1.1",
+  "version": "1.2",
   "homepage_url": "https://github.com/LucaswithC/Youtube-Sentiment-Extension",
 
   "description": "This extension analyzes the sentiment of Youtube comments to give you a good overview of the feelings of the community.",
@@ -18,7 +18,7 @@
     "default_popup": "popup/settings.html"
   },
 
-  "permissions": ["activeTab", "tabs", "storage"],
+  "permissions": ["tabs", "storage"],
 
   "background": {
     "scripts": ["background/background_bundle.js"]
