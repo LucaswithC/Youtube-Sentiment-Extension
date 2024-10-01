@@ -5,3 +5,4 @@ icons/create_icon/
 .env
 chrome/
 .amo-upload-uuid
+format_text/

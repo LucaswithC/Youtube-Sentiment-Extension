@@ -1,8 +1,11 @@
 let browser = require("webextension-polyfill");
+let germanWordlist = require("../wordlists/german");
 var Sentiment = require("sentiment");
 var sentiment = new Sentiment();
 
-const validLanguages = ["en"];
+const validLanguages = ["en", "de"];
+
+sentiment.registerLanguage("de", germanWordlist.germanWordlist);
 
 function interpretSentiment(score) {
   let nrScore = score.comparative;
@@ -21,7 +24,8 @@ async function calculateSentiment(c, weighted) {
       ) {
         language = l.languages[0].language;
       }
-      let result = sentiment.analyze(c.comment);
+      console.log(language);
+      let result = sentiment.analyze(c.comment, { language: language });
       let interpretedResult = interpretSentiment(result);
       let resArray = new Array(weighted ? c.likes + 1 : 1).fill(
         interpretedResult
